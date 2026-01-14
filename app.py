@@ -4,6 +4,17 @@ import pandas as pd
 import datetime
 # --- SYSTÈME DE LICENCE ---
 import hashlib
+from supabase import create_client
+
+# Remplacez par vos vraies infos copiées à l'étape 2
+url = "VOTRE_URL_SUPABASE"
+key = "VOTRE_CLE_ANON"
+supabase = create_client(url, key)
+
+def verifier_licence_cloud(nom, cle):
+    # Cette fonction va vérifier la clé sur Internet au lieu de votre PC
+    result = supabase.table("licences").select("*").eq("nom", nom).eq("cle", cle).execute()
+    return len(result.data) > 0
 
 def check_license():
     """Vérifie si le logiciel est déjà activé dans la base de données"""
@@ -470,6 +481,7 @@ elif menu == "☎️ Aide & Support":
             st.success("Votre demande a été enregistrée. Pacy MHA vous contactera sous peu.")
 
    
+
 
 
 
