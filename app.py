@@ -38,14 +38,12 @@ if not licence_info or licence_info[0] != "Active":
     cle_donnee = st.text_input("Clé d'activation", type="password")
     
     if st.button("Activer le logiciel"):
-        # Ajoutez cette condition temporaire pour votre client
         if activate_software(nom_boutique, cle_donnee):
             st.success("✅ Activation réussie ! Relancement...")
             st.rerun()
         else:
             st.error("❌ Nom de boutique ou clé de licence invalide.")
-            st.stop() 
-         # Arrête le code ici tant que ce n'est pas activé
+    st.stop() # Arrête le code ici tant que ce n'est pas activé
 
 # 2. Si activé, on affiche le nom de la boutique en haut
 nom_de_la_boutique = licence_info[1]
@@ -472,4 +470,5 @@ elif menu == "☎️ Aide & Support":
             st.success("Votre demande a été enregistrée. Pacy MHA vous contactera sous peu.")
 
    
+
 
