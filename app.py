@@ -39,6 +39,12 @@ if not licence_info or licence_info[0] != "Active":
     
     if st.button("Activer le logiciel"):
         # Ajoutez cette condition temporaire pour votre client
+        if activate_software(nom_boutique, cle_donnee):
+            st.success("✅ Activation réussie ! Relancement...")
+            st.rerun()
+        else:
+            st.error("❌ Nom de boutique ou clé de licence invalide.")
+            st.stop() 
         if nom_boutique == "Kagenda Group" and licence_saisie == "PACY-102E-9198":
             st.success("Activation réussie !")
             st.session_state['active'] = True # ou la variable que vous utilisez
