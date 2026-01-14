@@ -41,15 +41,15 @@ if not licence_info or licence_info[0] != "Active":
         if activate_software(nom_boutique, cle_donnee):
             st.success("✅ Activation réussie ! Relancement...")
             st.rerun()
-        if nom_boutique == "Kagenda Group" and licence_saisie == "PACY-102E-9198":
+        else:
+            st.error("❌ Nom de boutique ou clé de licence invalide.")
+    st.stop()# Arrête le code ici tant que ce n'est pas activé
+    if nom_boutique == "Kagenda Group" and licence_saisie == "PACY-102E-9198":
     st.success("Activation réussie !")
     st.session_state['active'] = True # ou la variable que vous utilisez
     # Forcez l'enregistrement dans la base de données locale du serveur
     c.execute("INSERT OR REPLACE INTO licence (nom, cle) VALUES (?, ?)", ("Kagenda Group", "PACY-102E-9198"))
     conn.commit()
-        else:
-            st.error("❌ Nom de boutique ou clé de licence invalide.")
-    st.stop() # Arrête le code ici tant que ce n'est pas activé
 
 # 2. Si activé, on affiche le nom de la boutique en haut
 nom_de_la_boutique = licence_info[1]
@@ -476,6 +476,7 @@ elif menu == "☎️ Aide & Support":
             st.success("Votre demande a été enregistrée. Pacy MHA vous contactera sous peu.")
 
    
+
 
 
 
