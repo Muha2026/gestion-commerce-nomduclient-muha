@@ -7,8 +7,8 @@ import hashlib
 from supabase import create_client
 
 # Remplacez par vos vraies infos copiées à l'étape 2
-url = "VOTRE_URL_SUPABASE"
-key = "VOTRE_CLE_ANON"
+url = "https://igwjdkxjvqdkupdcfpwe.supabase.co"
+key = "sb_publishable_N-i2Zf29Hh_tOrONY5RgDQ_JhkhdwSD"
 supabase = create_client(url, key)
 
 def verifier_licence_cloud(nom, cle):
@@ -481,6 +481,7 @@ elif menu == "☎️ Aide & Support":
             st.success("Votre demande a été enregistrée. Pacy MHA vous contactera sous peu.")
 
    
+
 
 
 
